@@ -1,7 +1,12 @@
 import { useContext, useState } from "react";
-import styled from "styled-components";
 import { Link } from "react-router-dom";
 import typeContext from "../contexts/types";
+import Next from "../style-component/Next";
+import Button from "../style-component/Button";
+import ButtonNext from "../style-component/ButtonNext";
+import FlexRow from "../style-component/FlexRow";
+import Container from "../style-component/Container";
+import TitlePrimary from "../style-component/TitlePrimary";
 
 const Types = () => {
  const {choosenType, setChoosenType} = useContext(typeContext)
@@ -11,27 +16,22 @@ const handleClick = (e) => {
      // console.log(choosenType)
 }; 
 
-console.log(choosenType)
-
   return (
-    <div>
-      <h3>Quel est votre genre de livre ?</h3>
-      <div>
-      <button value="UX Design" onClick={handleClick}>UX Design</button>
-      <button value="Devops" onClick={handleClick}>Devops</button>
-      <button value="Front" onClick={handleClick}>Développement Front-End</button>
-      <button value="Back" onClick={handleClick}>Développement Back-End</button>
-      </div>
+    <Container>
+      <TitlePrimary>Quel est le <b>domaine</b> qui vous intéresse?</TitlePrimary>
+      <FlexRow>
+      <Button value="UX Design" onClick={handleClick}>UX Design</Button>
+      <Button value="Devops" onClick={handleClick}>Devops</Button>
+      <Button value="Front" onClick={handleClick}>Développement Front-End</Button>
+      <Button value="Back" onClick={handleClick}>Développement Back-End</Button>
+      </FlexRow>
+      <Next>
       <Link to="/level">
-        <button>Suivant</button>
+        <ButtonNext>Suivant</ButtonNext>
       </Link>
-    </div>
+      </Next>
+    </Container>
   );
 };
 
 export default Types;
-
-//    const HeaderContainer = styled.div`
-//     background-color: #000000;
-//     height: 200px;
-//    `

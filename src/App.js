@@ -6,11 +6,13 @@ import Types from './components/Types';
 import Level from './components/Level';
 import NumberPages from './components/NumberPages';
 import BookResult from './components/BookResult';
-import BookDescription from './components/BookDescription';
+import BookDescription from './components/BooksFavoris';
 import TypeContext from './contexts/types';
 import { useState } from 'react';
 import LevelContext from './contexts/level';
 import PagesContext from './contexts/pages';
+import GlobalStyle from './style-component/globalStyle';
+import BookFavoris from './components/BooksFavoris';
 
 
 function App() {
@@ -23,6 +25,7 @@ function App() {
     <LevelContext.Provider  value={{ choosenLevel: choosenLevel, setChoosenLevel : setChoosenLevel }}>
     <PagesContext.Provider  value={{ choosenPages: choosenPages, setChoosenPages : setChoosenPages }}>
     <Header NameWebSite={"Read IT"} />
+    <GlobalStyle/>
     <BrowserRouter>
     <Routes>
       <Route exact path="/" element={<Home />}/>
@@ -30,7 +33,7 @@ function App() {
       <Route exact path="/level" element={<Level />}/>
       <Route exact path="/pages" element={<NumberPages />}/>
       <Route exact path="/books" element={<BookResult />}/>
-      <Route exact path="/:id" element={<BookDescription />}/>
+      <Route exact path="/favoris" element={<BookFavoris/>}/>
     </Routes>
   </BrowserRouter>
   </PagesContext.Provider>

@@ -2,29 +2,36 @@ import { useContext } from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import PagesContext from "../contexts/pages";
+import TitlePrimary from "../style-component/TitlePrimary";
+import Container from "../style-component/Container";
+import FlexRow from "../style-component/FlexRow";
+import Button from "../style-component/Button";
+import Next from "../style-component/Next";
+import ButtonNext from "../style-component/ButtonNext";
 
 const NumberPages = () => {
      const {choosenPages, setChoosenPages} = useContext(PagesContext)
 
      const handleClick = (e) => {
           setChoosenPages(e.target.value)
-          // console.log(choosenType)
      }; 
 
     return (
-    <div>
-         <h3>Quel est votre genre de livre ?</h3>
-         <div>
-              <ul>
-                   <li>200 à 500</li>
-                   <li>+ de 500</li>
-                   <li>Indifférent</li>
-              </ul>
-         </div>
+    <Container>
+         <TitlePrimary>Sélectionner <b>le nombre de page?</b></TitlePrimary>
+         <FlexRow>
+              
+                   <Button value="200, 500" type="button" onClick={handleClick}>200 à 500</Button>
+                   <Button value="501" type="button" onClick={handleClick}>+ de 500</Button>
+                   <Button value="all" type="button" onClick={handleClick}>Indifférent</Button>
+          
+         </FlexRow>
+         <Next>
          <Link to="/books">
-         <button>Suivant</button>
+         <ButtonNext>Suivant</ButtonNext>
       </Link>
-    </div>
+      </Next>
+    </Container>
     )
    
    }

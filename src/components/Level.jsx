@@ -1,6 +1,12 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import LevelContext from "../contexts/level";
+import Container from "../style-component/Container"
+import FlexRow from "../style-component/FlexRow";
+import Button from "../style-component/Button";
+import TitlePrimary from "../style-component/TitlePrimary";
+import Next from "../style-component/Next";
+import ButtonNext from "../style-component/ButtonNext";
 
 
 const Level = () => {
@@ -11,20 +17,22 @@ const Level = () => {
      }; 
 
     return (
-    <div>
-         <h3>Quel est votre niveau ?</h3>
-         <div>
-              <ul>
-                   <li value="Débutant" onClick={handleClick}>Débutant</li>
-                   <li value="Intermédiaire" onClick={handleClick}>Intermediaire</li>
-                   <li value="Expert" onClick={handleClick}>Expert</li>
-                   <li value="all" onClick={handleClick}>Tout m'intéresse</li>
-              </ul>
-         </div>
+    <Container>
+         <TitlePrimary>Quel est votre niveau ?</TitlePrimary>
+         <FlexRow>
+              
+                   <Button value="Débutant" onClick={handleClick}>Débutant</Button>
+                   <Button value="Intermédiaire" onClick={handleClick}>Intermediaire</Button>
+                   <Button value="Expert" onClick={handleClick}>Expert</Button>
+                   <Button value="all" onClick={handleClick}>Tout m'intéresse</Button>
+              
+         </FlexRow>
+         <Next>
          <Link to="/pages">
-      <button>Suivant</button>
+      <ButtonNext>Suivant</ButtonNext>
       </Link>
-    </div>
+      </Next>
+    </Container>
     )
    
    }
