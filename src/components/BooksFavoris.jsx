@@ -8,7 +8,7 @@ const BookFavoris = () => {
      const [books, setBooks] = useState([]);
 
      useEffect(() => {
-          axios(`{http://localhost:5000/api/books/`)
+          axios("http://localhost:5000/api/books")
             .then((res) => setBooks(res.data))
             .catch((err) => console.log(err))
         }, []);
@@ -20,7 +20,6 @@ const BookFavoris = () => {
       </TitlePrimary>
       <ContainerBooks>
       {books.map((book) =>
-      
       <Book>
       <h3>{book.name}</h3>
       <Images src={book.image} alt="Book" />
@@ -43,6 +42,9 @@ flex-direction: row;
 margin: 0 auto;
 flex-wrap: wrap;
 text-align: center;
+width: 70%;
+background-color: #ffffff;
+border-radius: 20px;
 
 `;
 

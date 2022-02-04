@@ -6,7 +6,6 @@ import Types from './components/Types';
 import Level from './components/Level';
 import NumberPages from './components/NumberPages';
 import BookResult from './components/BookResult';
-import BookDescription from './components/BooksFavoris';
 import TypeContext from './contexts/types';
 import { useState } from 'react';
 import LevelContext from './contexts/level';

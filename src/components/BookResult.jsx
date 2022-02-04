@@ -1,14 +1,11 @@
 import { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import styledComponents from "styled-components";
+import styled from "styled-components";
 import LevelContext from "../contexts/level";
 import PagesContext from "../contexts/pages";
 import TypeContext from "../contexts/types";
 import TitlePrimary from "../style-component/TitlePrimary";
-import FlexRow from "../style-component/FlexRow";
-import FlexColumn from "../style-component/FlexColumn";
-import styled from "styled-components";
 import Button from "../style-component/Button";
 
 const BookResult = () => {
@@ -24,6 +21,7 @@ const BookResult = () => {
   console.log(choosenLevel);
   console.log(choosenPages);
   console.log(choosenType);
+  console.log(books)
   return (
     <MainContent>
     <Container>
@@ -33,7 +31,7 @@ const BookResult = () => {
       <div>
         {books
           .filter(
-            (bookPerso) =>
+            (bookPerso) => 
               bookPerso.levelBook === choosenLevel &&
               bookPerso.type === choosenType
           )
@@ -57,6 +55,14 @@ const BookResult = () => {
             </FlexRowBook>
           ))}
       </div>
+      <div>
+        <Center>
+      <SubTitle>Vous ne trouvez pas votre bonheur ?</SubTitle>
+      <Link to="/favoris">
+      <TextSurlign>Consultez les favoris des utilisateurs</TextSurlign>
+      </Link>
+      </Center>
+      </div>
     </Container>
    </MainContent>
   );
@@ -76,6 +82,14 @@ margin: 0 auto;
 padding: 3em;
 `;
 
+const Center = styled.div`
+text-align: center;
+margin-top: 4em;
+background-color: #f7594a ;
+padding: 1em;
+border-radius: 30px;
+font-family: 'Bitter'
+`
 const FlexRowBook = styled.div`
   display: flex;
   justify-content: space-space-between;
@@ -107,7 +121,7 @@ const Image = styled.img`
 `;
 
 const SubTitle = styled.h2`
-font-weight: 900;
+font-weight: 700;
 font-size: 25px;
 `
 const ButtonView = styled.button`
@@ -133,10 +147,10 @@ padding: 1em;
     font-weight: 800;
     
 }
-:focus {
-    background-color: #f7594a !important ;
-    border: 1px solid #ffffff;
-    font-weight: 800;
-}
 `
+const TextSurlign = styled.p`
+  text-decoration: underline;
+  color: #000000;
+`
+
 ;

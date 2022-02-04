@@ -5,9 +5,9 @@ const Header = () => {
 
     return (
         <HeaderContainer className="header">
-            <a href="/">
-            <Title>READ I.T</Title>
-            </a>
+            <Lien href="/">
+            <Title>READ IT</Title>
+            </Lien>
         </HeaderContainer>
     )
    
@@ -22,8 +22,10 @@ const Header = () => {
    margin: 0 auto;
    padding-top: 2em;
    font-weight: 900;
-   
-  
+   `;
+
+   const Lien = styled.a`
+   text-decoration: none;
    `
 
    const HeaderContainer = styled.div`
